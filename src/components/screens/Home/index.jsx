@@ -1,5 +1,5 @@
 import { Text, SafeAreaView, View, ScrollView } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 import SettingSvg from "../../../../assets/svgs/settings.svg";
 import FilterSvg from "../../../../assets/svgs/filter.svg";
@@ -9,8 +9,15 @@ import { styles } from "./styles";
 import TaskCard from "../../common/TaskCard";
 import { colors } from "../../../themes";
 import FloatingButton from "../../common/FloatingButton";
+import TodoModal from "../../common/TodoModal";
 
 const Home = ({ navigation }) => {
+  const [isCreateModalVisible, setIsCreateModalVisible] = useState(false);
+
+  const createModalHandler = () => {
+    setIsCreateModalVisible(!isCreateModalVisible);
+  };
+
   const cardPressHandler = () => {
     navigation.navigate("Detail");
   };
@@ -44,7 +51,11 @@ const Home = ({ navigation }) => {
           cardPress={cardPressHandler}
         />
       </ScrollView>
-      <FloatingButton />
+      <FloatingButton pressHandler={createModalHandler} />
+      <TodoModal
+        isVisible={isCreateModalVisible}
+        handler={createModalHandler}
+      />
     </SafeAreaView>
   );
 };

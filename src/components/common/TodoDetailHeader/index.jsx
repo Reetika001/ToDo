@@ -1,21 +1,15 @@
 // src/components/TodoDetail.js
 import React from "react";
-import { View, TouchableOpacity } from "react-native";
+import { View } from "react-native";
+
 import { styles } from "./styles";
+import IconWrapper from "../IconWrapper";
 import LeftSvg from "../../../../assets/svgs/left.svg";
 import EditSvg from "../../../../assets/svgs/edit.svg";
 import ClockSvg from "../../../../assets/svgs/darkClock.svg";
 import TrashSvg from "../../../../assets/svgs/trash.svg";
 
-const IconWrapper = ({ icon, pressHandler }) => {
-  return (
-    <TouchableOpacity onPress={pressHandler} style={styles.touchArea}>
-      {icon}
-    </TouchableOpacity>
-  );
-};
-
-const TodoDetailHeader = ({ backHandler }) => {
+const TodoDetailHeader = ({ backHandler, editHandler }) => {
   return (
     <View style={styles.container}>
       <IconWrapper icon={<LeftSvg />} pressHandler={backHandler} />
@@ -26,12 +20,7 @@ const TodoDetailHeader = ({ backHandler }) => {
             console.log("hello");
           }}
         />
-        <IconWrapper
-          icon={<EditSvg />}
-          pressHandler={() => {
-            console.log("hello");
-          }}
-        />
+        <IconWrapper icon={<EditSvg />} pressHandler={editHandler} />
         <IconWrapper
           icon={<TrashSvg />}
           pressHandler={() => {
