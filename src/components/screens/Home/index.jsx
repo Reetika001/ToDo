@@ -10,7 +10,11 @@ import TaskCard from "../../common/TaskCard";
 import { colors } from "../../../themes";
 import FloatingButton from "../../common/FloatingButton";
 
-const Home = () => {
+const Home = ({ navigation }) => {
+  const cardPressHandler = () => {
+    navigation.navigate("Detail");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
@@ -24,18 +28,20 @@ const Home = () => {
         </View>
         <FilterSvg />
       </View>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.cardListStyle}>
         <TaskCard
           title="Design Logo"
           description="Make logo for the mini project"
           date="1 Sept 2021"
           backgroundColor={colors.orange}
+          cardPress={cardPressHandler}
         />
         <TaskCard
           title="Make UI Design"
           description="Make UI design for the mini project post figma link to the trello using ..."
           date="1 Sept 2021"
-          backgroundColor={colors.pitch} // Adjust the color to match the card color
+          backgroundColor={colors.pitch}
+          cardPress={cardPressHandler}
         />
       </ScrollView>
       <FloatingButton />

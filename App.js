@@ -1,12 +1,16 @@
 import { StyleSheet, View } from "react-native";
-import Home from "./src/components/screens/Home";
+import { NavigationContainer } from "@react-navigation/native";
+
+import StackCenter from "./src/navigation/StackCenter";
 import { colors } from "./src/themes";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Home />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <StackCenter />
+      </View>
+    </NavigationContainer>
   );
 }
 

@@ -5,7 +5,6 @@ import { moderateScale } from "../../../utils/scaleFile";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: moderateScale(24),
     backgroundColor: colors.appBg,
   },
   flexStyle: {
@@ -17,6 +16,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: moderateScale(40),
+    marginHorizontal: moderateScale(24),
   },
   todoText: {
     fontSize: moderateScale(40),
@@ -33,5 +33,9 @@ export const styles = StyleSheet.create({
     color: colors.orange,
     marginLeft: moderateScale(10),
     letterSpacing: -0.8,
+  },
+  cardListStyle: {
+    paddingTop: moderateScale(10),
+    paddingHorizontal: moderateScale(24),
   },
 });
