@@ -8,13 +8,14 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./styles";
+import { Screens } from "../../../constants";
 
-const SignUp = ({ navigation }) => {
+const Login = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>SIGN UP</Text>
+      <Text style={styles.header}>SIGN IN</Text>
       <View style={styles.formContainer}>
         <View style={styles.logoContainer}>
           <Text style={styles.logoText}>T O</Text>
@@ -32,7 +33,6 @@ const SignUp = ({ navigation }) => {
           placeholder="Email"
           keyboardType="email-address"
         />
-        <TextInput style={styles.input} placeholder="Full Name" />
         <View style={styles.passwordContainer}>
           <TextInput
             style={styles.passwordInput}
@@ -47,29 +47,20 @@ const SignUp = ({ navigation }) => {
             />
           </TouchableOpacity>
         </View>
-        <View style={styles.passwordContainer}>
-          <TextInput
-            style={styles.passwordInput}
-            placeholder="Confirm Password"
-            secureTextEntry={!showPassword}
-          />
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-            <Ionicons
-              name={showPassword ? "eye-off" : "eye"}
-              size={24}
-              color="#999"
-            />
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>SIGN UP</Text>
+        <TouchableOpacity>
+          <Text style={styles.forgotPassword}>Forgot Password?</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-          <Text style={styles.switchText}>Have an account? Log in</Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>SIGN IN</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate(Screens.SIGN_UP_SCREEN)}
+        >
+          <Text style={styles.switchText}>Don't have an account? Sign up</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
-export default SignUp;
+export default Login;
