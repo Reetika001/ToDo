@@ -10,6 +10,8 @@ import TaskCard from "../../common/TaskCard";
 import { colors } from "../../../themes";
 import FloatingButton from "../../common/FloatingButton";
 import TodoModal from "../../common/TodoModal";
+import { Screens } from "../../../constants";
+import IconWrapper from "../../common/IconWrapper";
 
 const Home = ({ navigation }) => {
   const [isCreateModalVisible, setIsCreateModalVisible] = useState(false);
@@ -19,14 +21,18 @@ const Home = ({ navigation }) => {
   };
 
   const cardPressHandler = () => {
-    navigation.navigate("Detail");
+    navigation.navigate(Screens.DETAIL_SCREEN);
+  };
+
+  const settingPressHandler = () => {
+    navigation.navigate(Screens.LOGIN_SCREEN);
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.todoText}>TO DO LIST</Text>
-        <SettingSvg />
+        <IconWrapper icon={<SettingSvg />} pressHandler={settingPressHandler} />
       </View>
       <View style={styles.headerContainer}>
         <View style={styles.flexStyle}>
